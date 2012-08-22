@@ -1,12 +1,12 @@
-{% extends "global.html" %} 
-{% block head %} 
-{% endblock %} 
+{% extends "global.html" %}
+{% block head %}
+{% endblock %}
 
-{% block document_ready %} 
-{% endblock %} 
+{% block document_ready %}
+{% endblock %}
 
 {% block content %}
-<!-- Replace Static Data with variables -->
+<!-- Replace Static Data with variables-->
 <div class="container-fluid" style="min-height:400px;">
 
 	<div class="row">
@@ -19,88 +19,14 @@
 	<div class="span3">
 		<div class="row">
 			<span style="margin-left: 5px"> <img src="images/gdgbig.png">
-
 			</span>
 		</div>
 	</div>
 	<div id="event-list-container">
 		<div class="span9">
 			<div class="row">
-        <div class="event-column">
-          {% for country in events.get_first_half()|sort(attribute='name') %}
-					<ul class="event-no-bullets">
-						<li>
-							<div class="row span6">
-                <h3>{{ country.name }}</h3>
-                <ul class="event-no-bullets">
-                  {% for event in country.data %}
-                  <li>
-                      <!-- Type of Event- Use <i> tag and class icon-event-* -->
-                      {% if '1' in event.agenda %}
-                        <i class="icon-event icon-event-conf"></i>
-                      {% endif %}
-                      {% if '2' in event.agenda %}
-                        <i class="icon-event icon-event-hack"></i>
-                      {% endif %}
-                      {% if '3' in event.agenda %}
-                        <i class="icon-event icon-event-barcamp"></i>
-                      {% endif %}
-                      {% if '4' in event.agenda %}
-                        <i class="icon-event icon-event-live"></i>
-                      {% endif %}
-                    <h4><a href="/event/{{ event.key() }}">DevFest {% if event.city %}{{ event.city }}{% else %}{{ event.location }}{% endif %}</a></h4>
-										<!-- Event Address & Date -->
-                    <h5>{{ event.location }}</h5>
-                    {% if event.start %}
-                      <h6>{{ event.start.strftime("%Y-%m-%d") }}</h6>
-                    {% endif %}
-                    <a class="label label-info" href="#">Register Now</a>
-                  </li>
-                  {% endfor %}
-								</ul>
-							</div>
-						</li>
-          </ul>
-          {% endfor %}
-        </div>
-	      <div class="event-column">
-          {% for country in events.get_second_half()|sort(attribute='name') %}
-					<ul class="event-no-bullets">
-						<li>
-							<div class="row span6">
-                <h3>{{ country.name }}</h3>
-                <ul class="event-no-bullets">
-                  {% for event in country.data %}
-                  <li>
-                      <!-- Type of Event- Use <i> tag and class icon-event-* -->
-                      {% if '1' in event.agenda %}
-                        <i class="icon-event icon-event-conf"></i>
-                      {% endif %}
-                      {% if '2' in event.agenda %}
-                        <i class="icon-event icon-event-hack"></i>
-                      {% endif %}
-                      {% if '3' in event.agenda %}
-                        <i class="icon-event icon-event-barcamp"></i>
-                      {% endif %}
-                      {% if '4' in event.agenda %}
-                        <i class="icon-event icon-event-live"></i>
-                      {% endif %}
-                    <h4><a href="/event/{{ event.key() }}">DevFest {% if event.city %}{{ event.city }}{% else %}{{ event.location }}{% endif %}</a></h4>
-										<!-- Event Address & Date -->
-                    <h5>{{ event.location }}</h5>
-                    {% if event.start %}
-                      <h6>{{ event.start.strftime("%Y-%m-%d") }}</h6>
-                    {% endif %}
-                    <a class="label label-info" href="#">Register Now</a>
-                  </li>
-                  {% endfor %}
-								</ul>
-							</div>
-						</li>
-          </ul>
-          {% endfor %}
-        </div>
-					
+				<div class="event-column">
+					<iframe src="https://www.google.com/calendar/embed?dates=20120922/20120923&title=DevFest%20Berlin&showNav=0&showTabs=0&showCalendars=0&mode=AGENDA&height=600&wkst=2&bgcolor=%23FFFFFF&src=surmair.de_5n3dfjn1etttsaaiirrmvfpqb0%40group.calendar.google.com&color=%235229A3&ctz=Europe%2FBerlin" style=" order-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 			</div>
 		</div>
 	</div>
